@@ -10,6 +10,7 @@ let checkedbox=document.getElementById("checked")
 
 const addTask = () => {
     let newTask = document.getElementById("newTask").value;
+    document.getElementById("newTask").value="";
     let li = document.createElement("li");
     let input = document.createElement("input");
     let label=document.createElement("label");
