@@ -5,7 +5,8 @@ let uncheck=document.querySelector("#checked")
 let tasks = document.querySelector("#tasks");
 let task = document.querySelector(".task");
 let box = document.getElementById("tasks");
-let checkedbox=document.getElementById("checked")
+let checkedbox=document.getElementById("checked");
+let input = document.querySelector("#newTask");
 
 
 const addTask = () => {
@@ -15,7 +16,7 @@ const addTask = () => {
     let input = document.createElement("input");
     let label=document.createElement("label");
     input.setAttribute("type","checkbox");
-    input.setAttribute("onclick","valid");
+    input.setAttribute("onchange","valid");
     input.setAttribute("id","task-box");
     li.setAttribute("id","taskk")
     if(newTask!=""){
@@ -53,7 +54,7 @@ const valid = () =>{
     let input = document.createElement("input");
     let label=document.createElement("label");
     input.setAttribute("type","checkbox");
-    input.setAttribute("onclick","valid");
+    input.setAttribute("onchange","valid");
     input.setAttribute("id","task-box");
     li.setAttribute("id","taskk");
     label.appendChild(document.createTextNode(newTask));
@@ -64,9 +65,13 @@ const valid = () =>{
     console.log(newTask);
         }
     }
-
+    const addafterkeypress=(event) =>{
+        if (event.key==='Enter') {
+          addTask();
+    }
+}
+    
 add.addEventListener("click", addTask);
+input.addEventListener("keypress", addafterkeypress);
 box.addEventListener("click",valid);
 checkedbox.addEventListener("click",unvalid);
-
-
